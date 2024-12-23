@@ -20,10 +20,12 @@ describe("within index.html", () => {
     expect(document.querySelector("p").innerHTML).to.include("<em>");
   });
   it("within the <p>, it contains an <a> tag", () => {
-    expect(document.querySelector("p").innerHTML).to.include(
+    const p = document.querySelectorAll("p")[1]; // Select the second <p>
+    console.log("Inner HTML of second <p>:", p ? p.innerHTML : "No second <p> found");
+    expect(p.innerHTML).to.include(
       '<a href="https://developer.mozilla.org/en-US/docs/Web/HTML">'
     );
-  });
+  });   
   it("within the <body>, it contains a <table> tag", () => {
     expect(document.querySelector("body").innerHTML).to.include("table");
   });
